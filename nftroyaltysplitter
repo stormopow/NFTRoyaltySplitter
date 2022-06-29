@@ -64,6 +64,7 @@ contract Royalty {
             if (totalRoyalty / totalSupply > withrawedAmount[tokenId]) {
                 uint256 pending = totalRoyalty / totalSupply - withrawedAmount[tokenId];
                 payable(msg.sender).transfer(pending);
+                withrawedAmount[tokenId] = totalRoyalty / totalSupply;
             }
         }
     }
